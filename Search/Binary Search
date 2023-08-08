@@ -1,0 +1,31 @@
+"""
+Created on Tue Aug  8 16:46:24 2023
+
+@author: Amar Doshi
+"""
+
+def binarySearch(item, lst: list) -> int:
+    '''
+    Works on data sorted in increasing order
+    '''
+
+    n = len(lst) - 1
+
+    l = 0
+    u = n
+
+    try:
+        while l <= u:
+            m = (l + u) // 2
+
+            if item < lst[m]:
+                u = m - 1
+            elif item > lst[m]:
+                l = m + 1
+            elif item == lst[m]:
+                return m
+
+        return -1
+
+    except TypeError:       # If data is not comparable
+       return None
